@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const { Storage } = require('@google-cloud/storage');
+const cors = require('cors');
 
 const app = express();
 const storage = new Storage();
@@ -9,7 +10,12 @@ const upload = multer({ storage: multer.memoryStorage() });
 // GANTI INI dengan nama bucket Anda
 const BUCKET_NAME = process.env.BUCKET_NAME || 'file-upload_gdgoc-cloud-workshop';
 
-app.use(require('cors')());
+// CORS configuration - allow all origins for development
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Health check
 app.get('/', (req, res) => {
