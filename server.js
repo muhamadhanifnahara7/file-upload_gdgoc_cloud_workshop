@@ -8,7 +8,7 @@ const storage = new Storage();
 const upload = multer({ storage: multer.memoryStorage() });
 
 // GANTI INI dengan nama bucket Anda
-const BUCKET_NAME = process.env.BUCKET_NAME || 'gdgocbinus';
+const BUCKET_NAME = process.env.BUCKET_NAME || 'file-upload_gdgoc_cloud-workshop';
 
 // CORS configuration - allow all origins for development
 app.use(cors({
