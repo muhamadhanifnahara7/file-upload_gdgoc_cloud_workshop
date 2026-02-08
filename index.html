@@ -24,7 +24,10 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            overflow: hidden;
+            overflow: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-attachment: fixed;
         }
 
         #grainient-bg {
@@ -45,7 +48,7 @@
 
         .container {
             width: 100%;
-            max-width: 520px;
+            max-width: 900px;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
@@ -57,6 +60,7 @@
             animation: slideUp 0.6s ease-out;
             position: relative;
             z-index: 1;
+            margin: 12px;
         }
 
         @keyframes slideUp {
@@ -345,7 +349,7 @@
 
         .image-preview {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 240px;
             border-radius: 12px;
             margin-bottom: 12px;
             object-fit: contain;
@@ -479,17 +483,79 @@
             }
         }
 
+        /* Small screens (phones) */
         @media (max-width: 640px) {
+            body {
+                align-items: flex-start;
+                padding: 12px;
+            }
+
             .container {
-                padding: 28px;
+                padding: 20px;
+                border-radius: 16px;
+                margin: 8px 0;
+                width: 100%;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             .upload-area {
-                padding: 36px 20px;
+                padding: 28px 16px;
+            }
+
+            .upload-icon {
+                font-size: 48px;
+            }
+
+            .image-preview {
+                max-height: 200px;
+            }
+        }
+
+        /* Medium screens (tablets) */
+        @media (min-width: 641px) and (max-width: 1023px) {
+            .container {
+                max-width: 720px;
+                padding: 36px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .upload-area {
+                padding: 48px 22px;
+            }
+        }
+
+        /* Large screens (desktops) */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 900px;
+                padding: 48px;
+                border-radius: 28px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .upload-area {
+                padding: 64px 30px;
+            }
+
+            .upload-icon {
+                font-size: 80px;
+            }
+
+            .dialog-content {
+                max-width: 600px;
+            }
+
+            .image-preview {
+                max-height: 300px;
             }
         }
     </style>
